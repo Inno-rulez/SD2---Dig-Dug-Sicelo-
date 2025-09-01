@@ -93,28 +93,44 @@ int main()
     cpu.y = screen_height / 2 - cpu.height / 2;
     cpu.speed = 6;
 
+    // Load image and texture - provide a RELATIVE PATH TO THE RESOURCE
+    raylib::Image logo_image("../resources/raylib-cpp_256x256.png");
+    raylib::Texture2D logo_texture(logo_image);
+
+    // Show image centered, wait for Enter
+    bool game_started = false;
+    while (!window.ShouldClose() && !game_started) {
+        window.BeginDrawing();
+        window.ClearBackground(dark_green);
+        int img_x = (screen_width - logo_texture.width) / 2;
+        int img_y = (screen_height - logo_texture.height) / 2;
+        logo_texture.Draw(img_x, img_y);
+    Text start_text{"Press ENTER to start", 40};
+    start_text.Draw(raylib::Vector2{static_cast<float>(screen_width/2 - 180), static_cast<float>(img_y + logo_texture.height + 40)});
+        window.EndDrawing();
+        if (IsKeyPressed(KEY_ENTER)) {
+            game_started = true;
+        }
+    }
+
+    // Main game loop
     while (!window.ShouldClose())
     {
         window.BeginDrawing();
 
         // Updating
-
         ball.Update(window);
         player.Update(window);
         cpu.Update(ball.y, window);
 
         // Checking for collisions
         raylib::Rectangle player_paddle_bounds{player.x, player.y, player.width, player.height};
-
         raylib::Vector2 ball_position{ball.x, ball.y};
-
         if (player_paddle_bounds.CheckCollision(ball_position, ball.radius))
         {
             ball.speed_x *= -1;
         }
-
         raylib::Rectangle cpu_paddle_bounds{cpu.x, cpu.y, cpu.width, cpu.height};
-
         if (cpu_paddle_bounds.CheckCollision(ball_position, ball.radius))
         {
             ball.speed_x *= -1;
@@ -122,24 +138,17 @@ int main()
 
         // Drawing
         window.ClearBackground(dark_green);
-
         raylib::Rectangle rect(screen_width / 2, 0, screen_width / 2, screen_height);
         rect.Draw(green);
-
         DrawCircle(screen_width / 2, screen_height / 2, 150, light_green);
-
         DrawLine(screen_width / 2, 0, screen_width / 2, screen_height, raylib::Color::White());
-
         ball.Draw();
         cpu.Draw();
         player.Draw();
-
         Text cpu_score_text{std::to_string(cpu_score), 80};
         cpu_score_text.Draw(raylib::Vector2{screen_width / 4 - 20, 20});
-
         Text player_score_text{std::to_string(player_score), 80};
         player_score_text.Draw(raylib::Vector2{3 * screen_width / 4 - 20, 20});
-
         window.EndDrawing();
     }
 
