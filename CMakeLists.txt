@@ -31,6 +31,15 @@ project(elen3009-project)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+if (WIN32)
+    # Check for minimum MinGW version
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "15.1.0")
+            message(FATAL_ERROR "MinGW version 15.1.0 or higher is required on Windows.")
+        endif()
+    endif()
+endif()
+
 # Put all generated executables and docs in a top-level "release" folder
 set(OUTPUT_DIR "${CMAKE_BINARY_DIR}/release")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${OUTPUT_DIR}/bin")
@@ -168,13 +177,12 @@ doxygen_add_docs(doxygen_docs
     ALL
     COMMENT "Generate HTML documentation")
 
-# ===================== Create Upload Directory for GitHub Release =========================
-# Mirror outputs into the "release" folder
+# ==================================== Copy resources ==================================
+
+# Copy resources into the "release" folder
 add_custom_target(
     package_for_upload ALL
     COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${CMAKE_CURRENT_SOURCE_DIR}/resources ${OUTPUT_DIR}/resources
-    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:game> ${OUTPUT_DIR}/bin/$<TARGET_FILE_NAME:game>
-    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:tests> ${OUTPUT_DIR}/bin/$<TARGET_FILE_NAME:tests>
 )
 
 # ======================================== CTest ============================================
