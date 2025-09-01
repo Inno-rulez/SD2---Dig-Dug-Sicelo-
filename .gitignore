@@ -38,6 +38,9 @@
 ### CMake ###
 build/
 
+### doctest ###
+doctest.h
+
 ### CodeBlocks ###
 *.cbp
 *.depend
@@ -76,6 +79,4 @@ Makefile
 *.DS_Store
 .AppleDouble
 .LSOverride
-
-### Other files ###
-doctest.h
+*.dSYM
