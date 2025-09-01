@@ -173,8 +173,8 @@ doxygen_add_docs(doxygen_docs
 add_custom_target(
     package_for_upload ALL
     COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${CMAKE_CURRENT_SOURCE_DIR}/resources ${OUTPUT_DIR}/resources
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:game> ${OUTPUT_DIR}/bin/$<TARGET_FILE_NAME:game>
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:tests> ${OUTPUT_DIR}/bin/$<TARGET_FILE_NAME:tests>
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:game> ${OUTPUT_DIR}/bin/$<TARGET_FILE_NAME:game>
+    # COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:tests> ${OUTPUT_DIR}/bin/$<TARGET_FILE_NAME:tests>
 )
 
 # ======================================== CTest ============================================
