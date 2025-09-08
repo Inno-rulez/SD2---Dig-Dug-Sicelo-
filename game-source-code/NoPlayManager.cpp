@@ -39,21 +39,21 @@ void NonPlayingManager::draw(game_States current_state) {
 
         case game_States::Instructions:
             ClearBackground(DARKGRAY);
-            DrawText("Instructions", 300, 200, 40, RAYWHITE);
-            DrawText("Move with arrows. Dig by moving through dirt.", 300, 280, 24, RAYWHITE);
-            DrawText("Press BACKSPACE to go back to Splash Screen", 300, 320, 24, RAYWHITE);
+            DrawText("Instructions", 300, 200, 50, RAYWHITE);
+            DrawText("Move with arrows. Dig by moving through dirt.", 300, 280, 30, RAYWHITE);
+            DrawText("Press BACKSPACE to go back to Splash Screen", 300, 320, 30, RAYWHITE);
             break;
 
         case game_States::Paused:
-            DrawText("Paused", 300, 200, 40, YELLOW);
-            DrawText("Press ENTER to resume", 300, 280, 24, RAYWHITE);
-            DrawText("Press BACKSPACE to return to Splash Screen", 300, 320, 24, RAYWHITE);
+            DrawText("Paused", 300, 200, 50, YELLOW);
+            DrawText("Press ENTER to resume", 300, 280, 30, RAYWHITE);
+            DrawText("Press BACKSPACE to return to Splash Screen", 300, 320, 30, RAYWHITE);
             break;
 
         case game_States::Game_Over:
             ClearBackground(MAROON);
-            DrawText("Game Over", 300, 200, 40, RAYWHITE);
-            DrawText("Press ENTER to return to Splash Screen", 300, 280, 24, RAYWHITE);
+            DrawText("Game Over", 300, 200, 50, RAYWHITE);
+            DrawText("Press ENTER to return to Splash Screen", 300, 280, 30, RAYWHITE);
             break;
 
         default:

@@ -14,19 +14,17 @@ Menu::Menu(int width, int height, int fps, string t)
 }
 
 void Menu::display() {
-    while (!game_Window.ShouldClose()) {
+    while (!game_Window.ShouldClose()) 
+    {
         BeginDrawing();
 
-        if (current_State == game_States::Playing) {
-            ClearBackground(BROWN);
-            DrawText("Playing", 300, 200, 40, RAYWHITE);
-            DrawText("Press P to pause", 300, 280, 24, RAYWHITE);
-            DrawText("Press BACKSPACE to go to Game Over screen", 300, 320, 24, RAYWHITE);
-
-            if (IsKeyPressed(KEY_P))      current_State = game_States::Paused;
-            if (IsKeyPressed(KEY_BACKSPACE)) current_State = game_States::Game_Over;
-        } else {
-            // Delegate to the non playing manager
+        if (current_State == game_States::Playing) 
+        {
+            current_State = playManager->update(current_State);
+            playManager->draw();
+        } 
+        else 
+        {
             current_State = nonPlaying->update(current_State);
             nonPlaying->draw(current_State);
         }

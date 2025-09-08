@@ -4,8 +4,10 @@
 
 #include <raylib-cpp.hpp>
 #include <string>
+#include <memory>
 #include "GameStates.h"
 #include "NoPlayManager.h"
+#include "PlayManager.h"
 
 using namespace std;
 
@@ -43,7 +45,8 @@ class Menu
         std::string title;
         raylib::Window game_Window;
         game_States current_State;
-        NonPlayingManager* nonPlaying = new NonPlayingManager();
+        std::unique_ptr<NonPlayingManager> nonPlaying;
+        std::unique_ptr<PlayManager>       playManager;
 };
 
 #endif /* D1113FEB_573A_497C_8E32_4891F7E3E871 */
