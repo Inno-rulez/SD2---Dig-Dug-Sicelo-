@@ -4,17 +4,10 @@
 
 #include <raylib-cpp.hpp>
 #include <string>
+#include "GameStates.h"
+#include "NoPlayManager.h"
 
 using namespace std;
-
-enum class game_States
-{
-    Splash_Screen,
-    Playing,
-    Paused,
-    Instructions,
-    Game_Over
-};
 
 
 /**
@@ -50,6 +43,7 @@ class Menu
         std::string title;
         raylib::Window game_Window;
         game_States current_State;
+        NonPlayingManager* nonPlaying = new NonPlayingManager();
 };
 
 #endif /* D1113FEB_573A_497C_8E32_4891F7E3E871 */
