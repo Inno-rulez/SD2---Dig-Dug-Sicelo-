@@ -27,7 +27,8 @@ void Menu::display() {
             if (IsKeyPressed(KEY_BACKSPACE)) current_State = game_States::Game_Over;
         } else {
             // Delegate to the non playing manager
-            current_State = nonPlaying->update_and_draw(current_State);
+            current_State = nonPlaying->update(current_State);
+            nonPlaying->draw(current_State);
         }
         EndDrawing();
     }

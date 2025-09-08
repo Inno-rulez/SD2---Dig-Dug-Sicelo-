@@ -5,12 +5,20 @@
 #include <string>
 #include "GameStates.h"
 
-class NonPlayingManager {
+/**
+ * @brief 
+ * 
+ * @brief Manages non-playing states in the game.
+ *
+ * This class handles updates and drawing for game states
+ * where the player is not actively playing (e.g., menus, pause screens).
+ */
+class NonPlayingManager 
+{
 public:
     NonPlayingManager() = default;
-    // Draws the current non playing screen and handles its input
-    // Returns the next requested state
-    game_States update_and_draw(game_States current_state);
+    game_States update(game_States current_state);
+    void draw(game_States current_state);
 };
 
 #endif /* E79680E5_9B67_4F3C_AFFE_7906DF5974B4 */
