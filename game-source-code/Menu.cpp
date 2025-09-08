@@ -13,7 +13,8 @@ Menu::Menu(int width, int height, int fps, string t)
     current_State = game_States::Splash_Screen;
 }
 
-void Menu::display() {
+void Menu::display() 
+{
     while (!game_Window.ShouldClose()) 
     {
         BeginDrawing();

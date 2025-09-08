@@ -1,7 +1,9 @@
 #include "NoPlayManager.h"
 
-game_States NonPlayingManager::update(game_States current_state) {
-    switch (current_state) {
+game_States NonPlayingManager::update(game_States current_state) 
+{
+    switch (current_state) 
+    {
         case game_States::Splash_Screen:
             if (IsKeyPressed(KEY_ENTER))     return game_States::Playing;
             if (IsKeyPressed(KEY_I))         return game_States::Instructions;
@@ -27,8 +29,10 @@ game_States NonPlayingManager::update(game_States current_state) {
     return current_state; // unchanged if no input
 }
 
-void NonPlayingManager::draw(game_States current_state) {
-    switch (current_state) {
+void NonPlayingManager::draw(game_States current_state) 
+{
+    switch (current_state) 
+    {
         case game_States::Splash_Screen:
             ClearBackground(BLACK);
             DrawText("Splash Screen", 300, 200, 50, LIGHTGRAY);
