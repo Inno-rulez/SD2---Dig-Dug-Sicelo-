@@ -40,9 +40,11 @@ class GameObject
         raylib::Vector2 GetSize() const { return size; }
 
     private:
-        raylib::Vector2 position;
         raylib::Vector2 size;
         bool isActive;
+
+    protected:
+        raylib::Vector2 position;
 };
 
 #endif /* A6BBD9D4_D6EC_4B66_AAF8_00A091776E24 */
