@@ -8,7 +8,7 @@
 #include "GameStates.h"
 #include "NoPlayManager.h"
 #include "PlayManager.h"
-#include "Tile.h"
+#include "Earth.h"
 
 using namespace std;
 
@@ -30,14 +30,14 @@ class Menu
          * @param fps The target frames per second.
          * @param t The title of the game window.
          */
-        Menu(int width = 1200, int height = 800, int fps = 60, string t = "Dig Dug Project");
+        Menu(int width = 1000, int height = 1000, int fps = 60, string t = "Dig Dug Project");
         /// @brief 
         ~Menu();
 
         /**
          * @brief Displays the main menu window and handles menu interactions.
          */
-        void display(Tile tile);
+        void display(Earth earth);
 
     private:
         int screen_Width;

@@ -4,7 +4,7 @@
 
 int main() {
     auto game_Menu = Menu{};
-    auto tile = Tile({100, 100}); // Example usage of Tile class
-    game_Menu.display(tile);
+    auto earth = Earth{1000, 1000, 8};
+    game_Menu.display(earth);
     return 0;
 }

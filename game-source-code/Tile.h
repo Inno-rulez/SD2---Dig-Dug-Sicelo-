@@ -22,7 +22,7 @@ class Tile : public GameObject
          * @param active Whether the tile is active (default: true).
          * @param color_ The color of the tile (default: WHITE).
          */
-        Tile(Vector2 pos, Vector2 size_ = Vector2{5,5}, bool active = true, raylib::Color color_ = WHITE)
+        Tile(Vector2 pos, Vector2 size_ = Vector2{8,8}, bool active = true, raylib::Color color_ = WHITE)
         : GameObject(pos, size_, active), color(color_) {}
         /**
          * @brief 

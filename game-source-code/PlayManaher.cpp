@@ -11,9 +11,9 @@ game_States PlayManager::update(game_States current_state)
     return current_state;
 }
 
-void PlayManager::draw(Tile tile) 
+void PlayManager::draw(Earth earth) 
 {
     // Drawing that used to live in Menu.cpp
     ClearBackground(BLACK);
-    tile.Draw();
+    earth.Draw();
 }

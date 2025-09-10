@@ -6,7 +6,6 @@
 #include "GameStates.h"
 #include "NoPlayManager.h"
 #include "GameObject.h"
-#include "Movable.h"
 #include "Tile.h"
 
 using namespace std;
