@@ -8,6 +8,7 @@
 #include "GameStates.h"
 #include "NoPlayManager.h"
 #include "PlayManager.h"
+#include "Tile.h"
 
 using namespace std;
 
@@ -36,7 +37,7 @@ class Menu
         /**
          * @brief Displays the main menu window and handles menu interactions.
          */
-        void display();
+        void display(Tile tile);
 
     private:
         int screen_Width;

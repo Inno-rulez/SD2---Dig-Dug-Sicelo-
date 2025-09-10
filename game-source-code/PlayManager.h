@@ -3,6 +3,7 @@
 
 #include <raylib-cpp.hpp>
 #include "GameStates.h"
+#include "Tile.h"
 
 /**
  * @class PlayManager
@@ -13,12 +14,18 @@ class PlayManager
     public:
         PlayManager() = default;
 
-        // Process input/logic for the Playing state and return (possibly) a new state
-        game_States update(game_States current_state);
         /**
+         * @brief Processes input and logic for the Playing state.
+         * @param current_state The current game state.
+         * @return The updated game state after processing.
+         */
+        game_States update(game_States current_state);
+        /** @brief 
+         * 
+         *
          * @brief Renders the Playing screen.
          */
-        void draw();
+        void draw(Tile tile);
 };
 
 #endif /* DFFB9813_6086_4CC3_AEC9_34F70C484613 */
