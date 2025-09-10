@@ -24,7 +24,19 @@ class GameObject
         GameObject(raylib::Vector2 pos, raylib::Vector2 size_, bool active = true)
         : position(pos), size(size_), isActive(active) {}
         virtual ~GameObject() = default;
+        /**
+         * @brief 
+         * 
+         * @brief Gets the position of the game object.
+         * @return The position as a raylib::Vector2.
+         */
         raylib::Vector2 GetPosition() const { return position; }
+        /**
+         * @brief 
+         * 
+         * @brief Gets the size of the game object.
+         * @return The size as a raylib::Vector2.
+         */
         raylib::Vector2 GetSize() const { return size; }
 
     private:
