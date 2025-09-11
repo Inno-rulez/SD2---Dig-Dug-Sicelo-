@@ -1,6 +1,6 @@
 #include "Player.h"
 
-void Player::controlled_Move() 
+void Player::controlled_Move(int window_Width, int window_Height) 
 {
     if (IsKeyDown(KEY_UP)) 
     {
@@ -24,4 +24,8 @@ void Player::controlled_Move()
         return; // No movement if no key is pressed
     }
     Move();
+
+    // Ensure the player stays within window bounds
+    position.x = std::max(0.0f, std::min(position.x, static_cast<float>(window_Width - GetSize().x)));
+    position.y = std::max(0.0f, std::min(position.y, static_cast<float>(window_Height - GetSize().y)));
 }

@@ -31,7 +31,7 @@ class Menu
          * @param fps The target frames per second.
          * @param t The title of the game window.
          */
-        Menu(int width = 1000, int height = 1000, int fps = 60, string t = "Dig Dug Project");
+        Menu(int width = 900, int height = 900, int fps = 60, string t = "Dig Dug Project");
         /// @brief 
         ~Menu();
 

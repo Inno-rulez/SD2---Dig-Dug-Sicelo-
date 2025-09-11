@@ -2,6 +2,7 @@
 #define DE374A09_A49B_48C4_BC30_F17C51B12019
 
 #include <raylib-cpp.hpp>
+#include <algorithm>
 #include "Movable.h"
 
 /**
@@ -21,7 +22,7 @@ class Player : public Movable
          * @param active Whether the player is active (default: true).
          * @param dir The initial direction vector (default: {0, 0}).
          */
-        Player(Vector2 pos = Vector2{490, 300}, Vector2 size_ = Vector2{50, 50}, bool active = true, Vector2 dir = Vector2{0,0})
+        Player(Vector2 pos = Vector2{490, 300}, Vector2 size_ = Vector2{40, 40}, bool active = true, Vector2 dir = Vector2{0,0})
         : Movable(pos, size_, active, dir) {setSpeed(2.0f);}
 
         /**
@@ -41,7 +42,7 @@ class Player : public Movable
          * 
          * This function updates the player's position according to keyboard input.
          */
-        void controlled_Move();
+        void controlled_Move(int window_Width = 1000, int window_Height = 1000);
 
         virtual ~Player() = default;
 };

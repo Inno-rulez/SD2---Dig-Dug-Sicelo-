@@ -31,7 +31,7 @@ class Earth
          * @param window_Width 
          * @param tile_Size 
          */
-        Earth(int window_Height, int window_Width, int tile_Size = 8);
+        Earth(int window_Height, int window_Width, int tile_Size = 4);
 
         /**
          * @brief Adds a layer of tiles to the Earth.
@@ -44,7 +44,7 @@ class Earth
          * @param cols The number of columns in the layer. Default is 0.
          * @param color The color of the tiles in the layer. Default is YELLOW.
          */
-        void add_Layer(int tile_Size = 8, int start_row = 0, int depth = 0, int cols = 0, raylib::Color color = YELLOW);
+        void add_Layer(int tile_Size = 4, int start_row = 0, int depth = 0, int cols = 0, raylib::Color color = YELLOW);
 
         void check_Player_Collisions(Player& player);
         void remove_Inactive_Tiles();
