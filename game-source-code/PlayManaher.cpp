@@ -15,6 +15,8 @@ void PlayManager::draw(Earth& earth, Player& player)
 {
     // Drawing that used to live in Menu.cpp
     ClearBackground(BLACK);
+    earth.check_Player_Collisions(player);
+    earth.remove_Inactive_Tiles();
     earth.Draw();
     player.controlled_Move();
     player.draw();

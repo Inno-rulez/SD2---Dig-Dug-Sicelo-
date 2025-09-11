@@ -36,6 +36,28 @@ void Earth::add_Layer(int tile_Size, int start_Row, int depth, int cols, raylib:
     }
 }
 
+void Earth::check_Player_Collisions(Player& player)
+{
+    CollisionHandler collision_Handler;
+    for (auto& row : tiles)
+    {
+        for (auto& tile : row)
+        {
+            collision_Handler.PlayerTileCollision(player, tile);
+        }
+    }
+}
+
+void Earth::remove_Inactive_Tiles()
+{
+    for (auto& row : tiles)
+    {
+        row.erase(std::remove_if(row.begin(), row.end(),
+                    [](const Tile& tile) { return !tile.getActive(); }),
+                row.end());
+    }
+}
+
 void Earth::Draw() const
 {
     for (const auto& row : tiles)

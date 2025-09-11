@@ -3,7 +3,10 @@
 
 #include <raylib-cpp.hpp>
 #include <vector>
+#include <algorithm>
 #include "Tile.h"
+#include "Player.h"
+#include "CollisionHandler.h"
 
 using namespace std;
 
@@ -15,35 +18,44 @@ using namespace std;
  */
 class Earth
 {
-    /** @brief 
-     * 
-     */
-    vector<vector<Tile>> tiles;
+    private:
+        /** @brief 
+         * 
+         */
+        vector<vector<Tile>> tiles;
 
-public:
-    /** @brief 
-     * 
-     * @param window_Height 
-     * @param window_Width 
-     * @param tile_Size 
-     */
-    Earth(int window_Height, int window_Width, int tile_Size = 8);
+    public:
+        /** @brief 
+         * 
+         * @param window_Height 
+         * @param window_Width 
+         * @param tile_Size 
+         */
+        Earth(int window_Height, int window_Width, int tile_Size = 8);
 
-    /**
-     * @brief Adds a layer of tiles to the Earth.
-     * 
-     * This function creates and adds a new layer of tiles to the Earth object.
-     * 
-     * @param tile_Size The size of each tile in the layer. Default is 8.
-     * @param start_row The starting row for the layer. Default is 0.
-     * @param depth The depth (number of rows) of the layer. Default is 0.
-     * @param cols The number of columns in the layer. Default is 0.
-     * @param color The color of the tiles in the layer. Default is YELLOW.
-     */
-    void add_Layer(int tile_Size = 8, int start_row = 0, int depth = 0, int cols = 0, raylib::Color color = YELLOW);
+        /**
+         * @brief Adds a layer of tiles to the Earth.
+         * 
+         * This function creates and adds a new layer of tiles to the Earth object.
+         * 
+         * @param tile_Size The size of each tile in the layer. Default is 8.
+         * @param start_row The starting row for the layer. Default is 0.
+         * @param depth The depth (number of rows) of the layer. Default is 0.
+         * @param cols The number of columns in the layer. Default is 0.
+         * @param color The color of the tiles in the layer. Default is YELLOW.
+         */
+        void add_Layer(int tile_Size = 8, int start_row = 0, int depth = 0, int cols = 0, raylib::Color color = YELLOW);
 
-    void Draw() const;
-    virtual ~Earth() = default;
+        void check_Player_Collisions(Player& player);
+        void remove_Inactive_Tiles();
+
+        /**
+         * @brief Draws the Earth and its tiles on the screen.
+         *
+         * This function renders all the tiles that make up the Earth.
+         */
+        void Draw() const;
+        virtual ~Earth() = default;
 };
 
 

@@ -38,6 +38,8 @@ class GameObject
          * @return The size as a raylib::Vector2.
          */
         raylib::Vector2 GetSize() const { return size; }
+        void deactivate() { isActive = false; }
+        bool getActive() const { return isActive; }
 
     private:
         raylib::Vector2 size;
