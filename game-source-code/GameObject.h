@@ -44,6 +44,11 @@ class GameObject
         bool isActive;
 
     protected:
+        /**
+         * @brief 
+         * 
+         * @brief The position of the game object in the game world.
+         */
         raylib::Vector2 position;
 };
 

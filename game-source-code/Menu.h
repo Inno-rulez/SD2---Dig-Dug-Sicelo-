@@ -9,6 +9,7 @@
 #include "NoPlayManager.h"
 #include "PlayManager.h"
 #include "Earth.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -37,7 +38,7 @@ class Menu
         /**
          * @brief Displays the main menu window and handles menu interactions.
          */
-        void display(Earth earth);
+        void display(Earth& earth, Player& player);
 
     private:
         int screen_Width;

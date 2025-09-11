@@ -25,14 +25,54 @@ class Movable : public GameObject
          */
         Movable(Vector2 pos, Vector2 size_ = Vector2{20, 20}, bool active = true, Vector2 dir = Vector2{0,0})
         : GameObject(pos, size_, active), direction(dir), speed(0.0f) {}
+        /**
+         * @brief Moves the object upwards by updating its direction.
+         */
         void up();
+
+        /** @brief Moves the object downwards by updating its direction.
+         */
         void down();
+
+        /**
+         * @brief Moves the object to the left by updating its direction.
+         */
         void left();
+
+        /**
+         * @brief Moves the object to the right by updating its direction.
+         */
         void right();
-        /// @brief Sets the speed of the Movable object.
-        /// @param s The new speed value.
+
+        /**
+         * @brief Stops the object's movement by resetting its direction.
+         */
+        void stop();
+
+        /**
+         * @brief Sets the speed of the object.
+         * @param s The new speed value.
+         */
         void setSpeed(float s) { speed = s; }
+        /**
+         * @brief Gets the current speed of the object.
+         * @return The speed as a float.
+         */
+        float getSpeed() const { return speed; }
+        /**
+         * @brief 
+         * 
+         * @brief Moves the object based on its direction and speed.
+         */
         void Move();
+        /**
+         * @brief 
+         * 
+         * @brief Draws the movable object.
+         * 
+         * This is a pure virtual function that must be implemented by derived classes
+         * to handle the rendering of the movable object.
+         */
         virtual void draw() const = 0;
         virtual ~Movable() = default;
 

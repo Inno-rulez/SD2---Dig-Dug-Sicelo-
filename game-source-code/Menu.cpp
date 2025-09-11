@@ -13,7 +13,7 @@ Menu::Menu(int width, int height, int fps, string t)
     current_State = game_States::Splash_Screen;
 }
 
-void Menu::display(Earth earth) 
+void Menu::display(Earth& earth, Player& player) 
 {
     while (!game_Window.ShouldClose()) 
     {
@@ -22,7 +22,7 @@ void Menu::display(Earth earth)
         if (current_State == game_States::Playing) 
         {
             current_State = playManager->update(current_State);
-            playManager->draw(earth);
+            playManager->draw(earth, player);
         } 
         else 
         {

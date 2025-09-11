@@ -20,6 +20,11 @@ void Movable::right()
     direction = Vector2{1, 0};
 }
 
+void Movable::stop() 
+{
+    direction = Vector2{0, 0};
+}
+
 void Movable::Move() 
 {
     position.x += direction.x * speed;

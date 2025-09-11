@@ -4,6 +4,7 @@
 #include <raylib-cpp.hpp>
 #include "GameStates.h"
 #include "Earth.h"
+#include "Player.h"
 
 /**
  * @class PlayManager
@@ -25,7 +26,7 @@ class PlayManager
          *
          * @brief Renders the Playing screen.
          */
-        void draw(Earth earth);
+        void draw(Earth& earth, Player& player);
 };
 
 #endif /* DFFB9813_6086_4CC3_AEC9_34F70C484613 */
