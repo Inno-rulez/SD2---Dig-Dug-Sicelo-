@@ -47,3 +47,32 @@ TEST_CASE("Player movement updates position correctly") {
     CHECK(player.GetPosition().x == 100); // No movement
     CHECK(player.GetPosition().y == 150); // No movement
 }
+
+TEST_CASE("Player movement is bound within window limits") {
+    Player player(Vector2{10, 10}, Vector2{50, 50}, true, Vector2{0,0});
+    player.setSpeed(15.0f);
+    int window_Width = 200;
+    int window_Height = 200;
+
+    // Move Left beyond boundary
+    player.left();
+    player.bound_Move(window_Width, window_Height);
+    player.bound_Move(window_Width, window_Height); // Move twice to ensure boundary check
+    CHECK(player.GetPosition().x == 0); // Should not go below 0
+
+    // Move Up beyond boundary
+    player.up();
+    player.bound_Move(window_Width, window_Height);
+    player.bound_Move(window_Width, window_Height); // Move twice to ensure boundary check
+    CHECK(player.GetPosition().y == 0); // Should not go below 0
+
+    // Move Right beyond boundary
+    player.right();
+    for (int i = 0; i < 20; ++i) player.bound_Move(window_Width, window_Height); // Move multiple times
+    CHECK(player.GetPosition().x == window_Width - player.GetSize().x); // Should not exceed window width
+
+    // Move Down beyond boundary
+    player.down();
+    for (int i = 0; i < 20; ++i) player.bound_Move(window_Width, window_Height); // Move multiple times
+    CHECK(player.GetPosition().y == window_Height - player.GetSize().y); // Should not exceed window height
+}

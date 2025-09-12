@@ -43,6 +43,7 @@ class Player : public Movable
          * This function updates the player's position according to keyboard input.
          */
         void controlled_Move(int window_Width = 1000, int window_Height = 1000);
+        void bound_Move(int window_Width = 1000, int window_Height = 1000);
 
         virtual ~Player() = default;
 };
