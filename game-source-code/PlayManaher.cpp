@@ -18,6 +18,6 @@ void PlayManager::draw(Earth& earth, Player& player)
     earth.check_Player_Collisions(player);
     earth.remove_Inactive_Tiles();
     earth.Draw();
-    player.controlled_Move();
+    player.controlled_Move(900, 900);
     player.draw();
 }

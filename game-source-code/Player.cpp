@@ -31,5 +31,5 @@ void Player::bound_Move(int window_Width, int window_Height)
     Move();
     // Ensure the player stays within window bounds
     position.x = std::max(0.0f, std::min(position.x, static_cast<float>(window_Width - GetSize().x)));
-    position.y = std::max(0.0f, std::min(position.y, static_cast<float>(window_Height - GetSize().y)));
+    position.y = std::max(0.11f*window_Height - GetSize().y, std::min(position.y, static_cast<float>(0.83*window_Height - GetSize().y)));
 }
