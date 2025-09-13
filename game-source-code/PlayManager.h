@@ -5,6 +5,7 @@
 #include "GameStates.h"
 #include "Earth.h"
 #include "Player.h"
+#include "Monster.h"
 
 /**
  * @class PlayManager
@@ -26,7 +27,7 @@ class PlayManager
          *
          * @brief Renders the Playing screen.
          */
-        void draw(Earth& earth, Player& player);
+        void draw(Earth& earth, Player& player, Monster& monster);
 };
 
 #endif /* DFFB9813_6086_4CC3_AEC9_34F70C484613 */

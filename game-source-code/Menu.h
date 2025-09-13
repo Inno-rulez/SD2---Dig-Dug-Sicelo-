@@ -38,7 +38,7 @@ class Menu
         /**
          * @brief Displays the main menu window and handles menu interactions.
          */
-        void display(Earth& earth, Player& player);
+        void display(Earth& earth, Player& player, Monster& monster);
 
     private:
         int screen_Width;

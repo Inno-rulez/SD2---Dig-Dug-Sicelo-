@@ -3,6 +3,7 @@
 
 #include <raylib-cpp.hpp>
 #include <vector>
+#include <cmath>
 #include "Movable.h"
 #include "Player.h"
 #include "Earth.h"
@@ -40,9 +41,45 @@ class Monster : public Movable
          */
         void draw() const override;
 
+        /**
+         * @brief Gets possible moves for the monster when in physical state.
+         * 
+         * This function checks potential moves (up, down, left, right) and returns
+         * a list of valid positions that do not collide with the Earth.
+         * 
+         * @param earth The Earth object to check for collisions.
+         * @return A vector of valid move positions as raylib::Vector2.
+         */
         vector<Vector2> getPhysicalMoves(Earth& earth) const;
+
+        /**
+         * @brief Sets the monster's direction towards the player while avoiding collisions.
+         * 
+         * This function calculates the direction vector from the monster to the player,
+         * normalizes it, and sets it as the monster's direction if it does not lead to a collision.
+         * 
+         * @param player The Player object to chase.
+         * @param earth The Earth object to check for collisions.
+         */
+        void setPhysicalDirection(const Player& player, Earth& earth);
+
+        /**
+         * @brief Handles movement when the monster is in disembodied state.
+         * 
+         * This function allows the monster to move freely without collision checks.
+         */
         void disembodiedMove();
 
+        float getPlayerDistance(const Player& player) const;
+
+        /**
+         * @brief Chases the player by setting the monster's direction towards the player's position.
+         * 
+         * This function calculates the direction vector from the monster to the player,
+         * normalizes it, and sets it as the monster's direction.
+         * 
+         * @param player The Player object to chase.
+         */
         void chasePlayer(const Player& player); 
 
         virtual ~Monster() = default;

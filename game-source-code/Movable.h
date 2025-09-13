@@ -56,6 +56,12 @@ class Movable : public GameObject
          * @param dir 
          */
         void setDirection(Vector2 dir);
+        
+        /**
+         * @brief Gets the current direction of the object.
+         * @return The direction as a raylib::Vector2.
+         */
+        Vector2 getDirection() const { return direction; }
 
         /**
          * @brief Sets the speed of the object.

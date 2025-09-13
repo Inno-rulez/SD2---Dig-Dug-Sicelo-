@@ -11,7 +11,7 @@ game_States PlayManager::update(game_States current_state)
     return current_state;
 }
 
-void PlayManager::draw(Earth& earth, Player& player) 
+void PlayManager::draw(Earth& earth, Player& player, Monster& monster) 
 {
     // Drawing that used to live in Menu.cpp
     ClearBackground(BLACK);
@@ -20,4 +20,7 @@ void PlayManager::draw(Earth& earth, Player& player)
     earth.Draw();
     player.controlled_Move(900, 900);
     player.draw();
+    monster.setPhysicalDirection(player, earth);
+    monster.Move();
+    monster.draw();
 }
