@@ -55,7 +55,6 @@ void NonPlayingManager::draw(game_States current_state)
             break;
 
         case game_States::Game_Over:
-            ClearBackground(MAROON);
             DrawText("Game Over", 160, 200, 50, RAYWHITE);
             DrawText("Press ENTER to return to Splash Screen", 160, 280, 30, RAYWHITE);
             break;

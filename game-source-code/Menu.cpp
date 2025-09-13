@@ -21,7 +21,8 @@ void Menu::display(Earth& earth, Player& player, Monster& monster)
 
         if (current_State == game_States::Playing) 
         {
-            current_State = playManager->update(current_State);
+            current_State = playManager->update(current_State, player);
+            playManager->updateObjects(earth, player, monster);
             playManager->draw(earth, player, monster);
         } 
         else 
