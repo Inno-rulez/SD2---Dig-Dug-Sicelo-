@@ -46,13 +46,22 @@ class Earth
          */
         void add_Layer(int tile_Size = 4, int start_row = 0, int depth = 0, int cols = 0, raylib::Color color = YELLOW);
 
+        /**
+         * @brief Checks if a GameObject collides with any tiles in the Earth.
+         * 
+         * @param obj 
+         * @return true 
+         * @return false 
+         */
         bool isObjectCollide(const GameObject& obj) const;
-        /** @brief 
+
+        /** @brief Checks and handles collisions between the player and tiles.
          * 
          * @param player 
          */
         void check_Player_Collisions(Player& player);
-        /** @brief 
+        
+        /** @brief Removes inactive tiles from the Earth.
          * 
          */
         void remove_Inactive_Tiles();

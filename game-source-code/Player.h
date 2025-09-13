@@ -30,11 +30,7 @@ class Player : public Movable
          * 
          * This function draws the player as a green rectangle at its current position.
          */
-        void draw() const override 
-        {
-            DrawRectangle(static_cast<int>(GetPosition().x), static_cast<int>(GetPosition().y),
-                        static_cast<int>(GetSize().x), static_cast<int>(GetSize().y), BLUE);
-        }
+        void draw() const override;
         /**
          * @brief Destroy the Player object
          * 
@@ -42,8 +38,15 @@ class Player : public Movable
          * 
          * This function updates the player's position according to keyboard input.
          */
-        void controlled_Move(int window_Width = 1000, int window_Height = 1000);
-        void bound_Move(int window_Width = 1000, int window_Height = 1000);
+        void controlled_Move(int window_Width = 900, int window_Height = 900);
+        /**
+         * @brief Ensures the player stays within the window bounds after moving.
+         * 
+         * This function adjusts the player's position to keep it within the specified window dimensions.
+         * @param window_Width The width of the game window.
+         * @param window_Height The height of the game window.
+         */
+        void bound_Move(int window_Width = 900, int window_Height = 900);
 
         virtual ~Player() = default;
 };

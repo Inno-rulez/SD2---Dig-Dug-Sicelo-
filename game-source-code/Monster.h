@@ -70,6 +70,15 @@ class Monster : public Movable
          */
         void disembodiedMove();
 
+        /**
+         * @brief Calculates the distance to the player from the monster's future position.
+         * 
+         * This function computes the Euclidean distance between the monster's next position
+         * (based on its current direction and speed) and the player's position.
+         * 
+         * @param player The Player object to measure distance to.
+         * @return The distance to the player as a float.
+         */
         float getPlayerDistance(const Player& player) const;
 
         /**
