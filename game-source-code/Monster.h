@@ -2,7 +2,12 @@
 #define AA659600_5AB7_43BD_9360_FE6B0988E82B
 
 #include <raylib-cpp.hpp>
+#include <vector>
 #include "Movable.h"
+#include "Player.h"
+#include "Earth.h"
+
+using namespace std;
 
 /**
  * @class Monster
@@ -34,6 +39,11 @@ class Monster : public Movable
          * This function draws the monster as a red rectangle at its current position.
          */
         void draw() const override;
+
+        vector<Vector2> getPhysicalMoves(Earth& earth) const;
+        void disembodiedMove();
+
+        void chasePlayer(const Player& player); 
 
         virtual ~Monster() = default;
 }; 

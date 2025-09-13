@@ -36,6 +36,22 @@ void Earth::add_Layer(int tile_Size, int start_Row, int depth, int cols, raylib:
     }
 }
 
+bool Earth::isObjectCollide(const GameObject& obj) const
+{
+    CollisionHandler collision_Handler;
+    for (const auto& row : tiles)
+    {
+        for (const auto& tile : row)
+        {
+            if (collision_Handler.checkCollision(obj, tile))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 void Earth::check_Player_Collisions(Player& player)
 {
     CollisionHandler collision_Handler;

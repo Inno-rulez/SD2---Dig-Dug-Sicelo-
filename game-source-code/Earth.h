@@ -46,7 +46,15 @@ class Earth
          */
         void add_Layer(int tile_Size = 4, int start_row = 0, int depth = 0, int cols = 0, raylib::Color color = YELLOW);
 
+        bool isObjectCollide(const GameObject& obj) const;
+        /** @brief 
+         * 
+         * @param player 
+         */
         void check_Player_Collisions(Player& player);
+        /** @brief 
+         * 
+         */
         void remove_Inactive_Tiles();
 
         /**

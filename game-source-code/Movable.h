@@ -3,6 +3,7 @@
 
 #include <raylib-cpp.hpp>
 #include "GameObject.h"
+#include <cmath>
 
 /**
  * @brief Represents a movable game object that can change position and direction.
@@ -48,6 +49,13 @@ class Movable : public GameObject
          * @brief Stops the object's movement by resetting its direction.
          */
         void stop();
+
+        /**
+         * @brief Set the Direction object
+         * 
+         * @param dir 
+         */
+        void setDirection(Vector2 dir);
 
         /**
          * @brief Sets the speed of the object.

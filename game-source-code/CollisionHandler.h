@@ -24,6 +24,11 @@ class CollisionHandler
          * @return true if the objects collide, false otherwise.
          */
         bool checkCollision(const GameObject& obj1, const GameObject& obj2) const;
+        /** @brief 
+         * 
+         * @param player 
+         * @param tile 
+         */
         void PlayerTileCollision(Player& player, Tile& tile);
         /** @brief 
          * 
