@@ -4,6 +4,7 @@
 #include <raylib-cpp.hpp>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 #include "Movable.h"
 #include "Player.h"
 #include "Earth.h"
@@ -20,10 +21,18 @@ using namespace std;
 
 enum class MonsterSate { Physical, Disembodied};
 
+struct LockedMove
+{
+    Vector2 direction;
+    int cooldown;
+};
+
+
 class Monster : public Movable
 {   
     private:
         MonsterSate state;
+        vector<LockedMove> locked_Moves;
     public:
         /**
          * @brief Constructs a Monster object with position, size, active state, and direction.
@@ -32,14 +41,25 @@ class Monster : public Movable
          * @param active Whether the monster is active (default: true).
          * @param dir The initial direction vector (default: {0, 0}).
          */
-        Monster(Vector2 pos = Vector2{200, 200}, Vector2 size_ = Vector2{40, 40}, bool active = true, Vector2 dir = Vector2{0,0})
-        : Movable(pos, size_, active, dir), state(MonsterSate::Physical) {setSpeed(2.0f);}
+        Monster(Vector2 pos = Vector2{200, 200}, Vector2 size_ = Vector2{40, 40}, bool active = true, Vector2 dir = Vector2{0,0});
         /**
          * @brief Renders the monster on the screen.
          * 
          * This function draws the monster as a red rectangle at its current position.
          */
         void draw() const override;
+
+        void LockMoves();
+
+        /**
+         * @brief Updates the cooldowns of locked moves and removes expired ones.
+         * 
+         * This function decrements the cooldown of each locked move and removes
+         * any moves whose cooldown has reached zero.
+         */
+        void unLockedMoves();
+
+        bool isLockedMove(const Vector2& dir) const;
 
         /**
          * @brief Gets possible moves for the monster when in physical state.
@@ -79,7 +99,7 @@ class Monster : public Movable
          * @param player The Player object to measure distance to.
          * @return The distance to the player as a float.
          */
-        float getPlayerDistance(const Player& player) const;
+        float getDistanceToPlayer(const Player& player, const Vector2& testDirection) const;
 
         /**
          * @brief Chases the player by setting the monster's direction towards the player's position.
@@ -89,7 +109,7 @@ class Monster : public Movable
          * 
          * @param player The Player object to chase.
          */
-        void chasePlayer(const Player& player); 
+        void chasePlayer(const Player& player, Earth& earth); 
 
         virtual ~Monster() = default;
 }; 

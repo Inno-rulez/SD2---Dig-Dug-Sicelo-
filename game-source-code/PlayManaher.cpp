@@ -20,7 +20,6 @@ void PlayManager::draw(Earth& earth, Player& player, Monster& monster)
     earth.Draw();
     player.controlled_Move(900, 900);
     player.draw();
-    monster.setPhysicalDirection(player, earth);
-    monster.Move();
+    monster.chasePlayer(player, earth);
     monster.draw();
 }
