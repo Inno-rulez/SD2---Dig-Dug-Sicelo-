@@ -33,7 +33,7 @@ class Monster : public Movable
          * @param dir The initial direction vector (default: {0, 0}).
          */
         Monster(Vector2 pos = Vector2{200, 200}, Vector2 size_ = Vector2{40, 40}, bool active = true, Vector2 dir = Vector2{0,0})
-        : Movable(pos, size_, active, dir), state(MonsterSate::Physical) {setSpeed(1.0f);}
+        : Movable(pos, size_, active, dir), state(MonsterSate::Physical) {setSpeed(2.0f);}
         /**
          * @brief Renders the monster on the screen.
          * 

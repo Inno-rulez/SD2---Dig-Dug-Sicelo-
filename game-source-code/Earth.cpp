@@ -74,6 +74,24 @@ void Earth::remove_Inactive_Tiles()
     }
 }
 
+void Earth::create_Tunnel(Vector2 pos, Vector2 size)
+{
+    for (auto& row : tiles)
+    {
+        for (auto& tile : row)
+        {
+            if (tile.getActive() &&
+                !(pos.x + size.x < tile.GetPosition().x ||
+                pos.x > tile.GetPosition().x + tile.GetSize().x ||
+                pos.y + size.y < tile.GetPosition().y ||
+                pos.y > tile.GetPosition().y + tile.GetSize().y))
+            {
+                tile.deactivate();
+            }
+        }
+    }
+}
+
 void Earth::Draw() const
 {
     for (const auto& row : tiles)

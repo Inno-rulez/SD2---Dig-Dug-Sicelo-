@@ -22,10 +22,10 @@ vector<Vector2> Monster::getPhysicalMoves(Earth& earth) const
     vector<Vector2> possible_Moves;
     auto current_Pos = GetPosition();
     auto size = GetSize();
-    auto move_Up = Vector2{current_Pos.x, current_Pos.y - getSpeed()};
-    auto move_Down = Vector2{current_Pos.x, current_Pos.y + getSpeed()};
-    auto move_Left = Vector2{current_Pos.x - getSpeed(), current_Pos.y};
-    auto move_Right = Vector2{current_Pos.x + getSpeed(), current_Pos.y};
+    auto move_Up = Vector2{current_Pos.x, current_Pos.y - 3*getSpeed()};
+    auto move_Down = Vector2{current_Pos.x, current_Pos.y + 3*getSpeed()};
+    auto move_Left = Vector2{current_Pos.x - 3*getSpeed(), current_Pos.y};
+    auto move_Right = Vector2{current_Pos.x + 3*getSpeed(), current_Pos.y};
 
     // Check each potential move for collisions and add valid moves to the list, avoiding reversing direction
     if (!earth.isObjectCollide(Monster(move_Up, size)) && getDirection().y != 1) 

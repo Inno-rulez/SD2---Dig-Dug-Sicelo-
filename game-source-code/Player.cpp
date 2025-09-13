@@ -37,5 +37,5 @@ void Player::bound_Move(int window_Width, int window_Height)
 void Player::draw() const 
 {
     DrawRectangle(static_cast<int>(GetPosition().x), static_cast<int>(GetPosition().y),
-                static_cast<int>(GetSize().x), static_cast<int>(GetSize().y), GREEN);
+                static_cast<int>(GetSize().x), static_cast<int>(GetSize().y), BLUE);
 }

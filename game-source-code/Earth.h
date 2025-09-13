@@ -60,7 +60,7 @@ class Earth
          * @param player 
          */
         void check_Player_Collisions(Player& player);
-        
+
         /** @brief Removes inactive tiles from the Earth.
          * 
          */
@@ -72,6 +72,8 @@ class Earth
          * This function renders all the tiles that make up the Earth.
          */
         void Draw() const;
+
+        void create_Tunnel(Vector2 pos, Vector2 size);
         virtual ~Earth() = default;
 };
 
